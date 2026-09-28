@@ -21,16 +21,16 @@ int removeDuplicates(vector<int>& nums) {
         return k;
     }
 
-int main()
-{
-    vector<int> v1;
-    v1.push_back(1);
-    v1.push_back(1);
-    v1.push_back(2);
-    int k = removeDuplicates(v1);
+// int main()
+// {
+//     vector<int> v1;
+//     v1.push_back(1);
+//     v1.push_back(1);
+//     v1.push_back(2);
+//     int k = removeDuplicates(v1);
 
-    for(int x:v1){
-        cout<<x<<endl;
-    }
-    return 0;
-}
+//     for(int x:v1){
+//         cout<<x<<endl;
+//     }
+//     return 0;
+// }
