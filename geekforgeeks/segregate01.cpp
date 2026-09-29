@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+
+class Solution {
+  public:
+    void segregate0and1(vector<int> &arr) {
+        int left = 0;
+        int right = arr.size()-1;
+        while(left<right){
+            if(arr[left]==0 && arr[right]==1){
+                left++;
+                right--;
+                
+            }
+            else if(arr[left]==0 && arr[right]==0){
+                left++;
+                
+                
+            }
+            else if(arr[left]==1 && arr[right]==1){
+                
+                right--;
+                
+            }
+            else if(arr[left]==1 && arr[right]==0){
+                arr[left]=0;
+                arr[right]=1;
+                
+            }
+        }
+        
+        
+    }
+};
