@@ -1,29 +1,23 @@
 #include<iostream>
-#include<map>
 using namespace std;
+#include<vector>
+#include<map>
 
-string expand(int l,int r, string &s){
-        while((l>=0)&&(r<s.length())&&(s[l]==s[r])){
-            l--;
-            r++;
-        }
-        return s.substr(l+1,r-l-1);
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        map<int,int>map;
+        for(int i=0;i<nums.size();i++){
+            int curr = nums[i];
+            int x = target-curr;
+            // if(map.contains(x)){
+            //     return {map[x],i};
+            // }
+            // else{
+            //     map[curr] = i;
+            // }
+        } 
+        return {};
     }
     
-string longestPalindrome(string s) {
-    
-    string res = "";
-    for(int i=0;i<s.length();i++){
-        string odd = expand(i,i,s);
-        string even = expand(i,i+1,s);
-
-        if(odd.length()>res.length()){
-            res = odd;
-        }
-        if(even.length()>res.length()){
-            res = even;
-        }
-
-    }
-    return res;
-    }
+};
