@@ -6,62 +6,32 @@ using namespace std;
 class Solution {
 public:
     int findUnsortedSubarray(vector<int>& nums) {
-        
+        int minValue = INT_MIN;
+        int maxValue = INT_MAX;
 
-         if(nums.size()<=1){
-            return 0;
-        }
-
-        int c = 0;
         int left = 0;
-        int right = nums.size()-1;
-
-        if(nums.size()==2){
-            if(nums[left]>nums[right]){
-                return 2;
+        for(int i = 0;i<nums.size();i++){
+            if(nums[i]<minValue){                
+                left = i;
+                
+            }
+            else{
+                minValue = nums[i];
+            }
+        }
+        int right = -1;
+        // maxValue = nums[0];
+        for(int i = nums.size()-1;i>=0;i--){
+            if(nums[i]>maxValue){                
+                right = i;
+                
+            }
+            else{
+                maxValue = nums[i];
             }
         }
 
-        while(left<right){
+        return right == -1?0:left-right+1;
 
-            
-
-            if(nums[left]<=nums[left+1] && nums[right]>=nums[right-1] && nums[left]<=nums[right]){
-                left++;
-                right--;
-                ++c;
-                c++;
-            }
-            else if(nums[left]>=nums[left+1] && nums[right]>=nums[right-1] && nums[left]<=nums[right]){
-                right--;
-                c++;
-            }
-            else if(nums[left]<=nums[left+1] && nums[right]<=nums[right-1] && nums[left]<nums[right]){
-                left++;
-                c++;
-            }
-            else if(nums[left]<nums[left+1] && nums[right]>nums[right-1] && nums[left]>nums[right]){
-                return right-left+1;
-            }
-            else if(nums[left]>nums[left+1] && nums[right]>nums[right-1] && nums[left]>nums[right]){
-                return right-left+1;
-            }
-            else if(nums[left]<nums[left+1] && nums[right]<nums[right-1] && nums[left]>nums[right]){
-                return right-left+1;
-            }
-            else if(nums[left]>nums[left+1] && nums[right]<nums[right-1] && nums[left]<nums[right]){
-                return right-left+1;
-            }
-            else if(nums[left]>nums[left+1] && nums[right]<nums[right-1] && nums[left]>nums[right]){
-                return right-left+1;
-            }
-        }
-
-    if(nums.size()%2 != 0){
-        return nums.size()-c-1;
-    }
-    else{
-        return nums.size()-c;
-    }
     }
 };
