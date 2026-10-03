@@ -52,3 +52,37 @@ public:
        
     }
 };
+
+
+class Solution2 {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        if(head==NULL || head->next==NULL){
+            return NULL;
+        }
+        ListNode *slow = head;
+        ListNode *fast = head;
+        
+        int ctr = 0;
+
+        while(fast!=NULL && fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+            
+            if(slow==fast){
+                ctr=1;
+                slow=head;
+                break;
+            }            
+        }
+        if(ctr==1){
+            while(slow!=fast){
+                slow=slow->next;
+                fast=fast->next;
+            }
+            return slow;
+        }
+        return NULL;
+
+    }
+};
