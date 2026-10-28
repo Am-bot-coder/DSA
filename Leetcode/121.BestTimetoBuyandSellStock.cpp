@@ -19,3 +19,24 @@ public:
        return maxV;
     }
 };
+
+
+
+
+//java
+// class Solution {
+//     public int maxProfit(int[] prices) {
+//         int mp = 0;
+//         int mb = Integer.MAX_VALUE;
+
+//         for(int i=0;i<prices.length;i++){
+//             mb = Integer.min(mb,prices[i]);
+//             mp = Integer.max(mp,prices[i]-mb);
+//         }
+
+
+
+
+//         return mp;
+//     }
+// }
