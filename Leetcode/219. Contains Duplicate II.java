@@ -25,3 +25,23 @@ class Solution {
         return false;
     }
 }
+
+
+
+
+class Solution2 {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Map<Integer,Integer> window = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            if(window.get(nums[i])!=null){
+                int j = window.get(nums[i]);
+                if(Math.abs(i-j)<=k){
+                    return true;
+                }
+            }
+            window.put(nums[i],i);
+        }
+        return false;
+
+    }
+}
