@@ -22,15 +22,13 @@ using namespace std;
 
 
 
-//JAVA
 // class Solution {
 //     public boolean containsDuplicate(int[] nums) {
 //         HashSet<Integer>s = new HashSet<>();
 //         for(int x:nums){
-//             if(s.contains(x)){
+//             if(!s.add(x)){
 //                 return true;
-//             }
-//             s.add(x);
+//             }            
 //         }
 //         return false;
 //     }
