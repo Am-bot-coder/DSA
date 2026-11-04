@@ -48,3 +48,46 @@ int main()
     cout<<minSubArrayLen(target,num1);
     return 0;
 }
+
+
+
+//java
+// class Solution {
+//     public int minSubArrayLen(int target, int[] nums) {
+//         int left = 0;
+//         int right = 0;
+
+//         int n = nums.length;
+//         int sz = Integer.MAX_VALUE;
+//         int sum = 0;
+
+//         while(right<=n && left<=right){
+            
+            
+            
+//             if(sum>=target){
+//                 int temp = right-left;
+//                 if(temp<sz){
+//                     sz = temp;                    
+//                 }
+//                 sum-=nums[left];
+//                 left++;
+                               
+//             } 
+//             else if(right==n){
+//                 right++;
+//             }           
+//             else if(sum<target){ 
+                                
+//                 sum+=nums[right];
+//                 right++;                
+//             }
+            
+            
+            
+//         }
+//         return sz==Integer.MAX_VALUE?0:sz;
+
+
+//     }
+// }
