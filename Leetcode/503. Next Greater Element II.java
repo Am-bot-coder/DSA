@@ -21,26 +21,20 @@ class Solution {
 }
 
 
-import java.util.Stack;
-
 class Solution {
     public int[] nextGreaterElements(int[] nums) {
         int n = nums.length;
         int[] ans = new int[n];
-        Stack<Integer> stack = new Stack<>();
+        Arrays.fill(ans,-1);
 
-        for (int i = 2 * n - 1; i >= 0; i--) {
-            int idx = i % n;
+        ArrayDeque<Integer>stack = new ArrayDeque<>();
 
-            while (!stack.isEmpty() && stack.peek() <= nums[idx]) {
-                stack.pop();
+        for(int i =0;i<=n*2;i++){
+            while(!stack.isEmpty() && nums[i%n]>nums[stack.peek()]){
+                int idx = stack.pop();
+                ans[idx] = nums[i%n];
             }
-
-            if (i < n) {
-                ans[idx] = stack.isEmpty() ? -1 : stack.peek();
-            }
-
-            stack.push(nums[idx]);
+            stack.push(i%n);
         }
 
         return ans;
