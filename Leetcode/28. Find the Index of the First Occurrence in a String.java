@@ -50,3 +50,25 @@ class Solution {
         return -1;
     }
 }
+
+
+
+
+//===============================================================================>
+
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int i =0;
+        int j = needle.length();
+        int h = haystack.length();
+
+        while(j<=h){
+            if(haystack.substring(i,j).equals(needle)){
+                return i;
+            }
+            i++;
+            j++;
+        }
+        return -1;
+    }
+}
